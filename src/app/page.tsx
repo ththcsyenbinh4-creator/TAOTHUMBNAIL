@@ -11,10 +11,20 @@ import type { ThumbnailTemplate } from "@/lib/templates";
 export default function Home() {
     const [imageUrl, setImageUrl] = useState<string>("");
     const [selectedTemplate, setSelectedTemplate] = useState<ThumbnailTemplate | undefined>();
-    const [thumbnailData, setThumbnailData] = useState({
+    const [thumbnailData, setThumbnailData] = useState<{
+        hasFace: boolean;
+        faceSize: number;
+        faceEmotion: 'neutral' | 'happy' | 'surprised' | 'shocked' | 'angry';
+        hasText: boolean;
+        textLength: number;
+        textContrast: number;
+        colorVibrancy: number;
+        colorContrast: number;
+        ruleOfThirds: boolean;
+    }>({
         hasFace: false,
         faceSize: 0,
-        faceEmotion: 'neutral' as const,
+        faceEmotion: 'neutral',
         hasText: false,
         textLength: 0,
         textContrast: 0,
