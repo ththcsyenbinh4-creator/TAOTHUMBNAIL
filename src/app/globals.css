@@ -4,20 +4,59 @@
 
 @layer base {
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white antialiased;
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
-  
+
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl;
+  }
+
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl;
+    @apply px-8 py-4 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 rounded-xl font-bold transition-all shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 hover:scale-105;
   }
-  
+
   .btn-secondary {
-    @apply px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg font-medium transition-all border border-white/20;
+    @apply px-6 py-3 glass-card hover:bg-white/10 rounded-xl font-semibold transition-all hover:scale-105;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 glass-card rounded-xl focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  .glow {
+    @apply shadow-lg shadow-purple-500/30;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .thumbnail-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }
